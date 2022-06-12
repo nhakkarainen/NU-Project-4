@@ -1,0 +1,39 @@
+-- Create tables
+Drop table if exists titanic;
+CREATE TABLE titanic(
+	Survived Int,
+	Pclass Int,
+	Pass_Name Text,
+	Sex Int,
+	Age Float,
+	Siblings_spouses_aboard Int,
+	Parents_child_aboard Int,
+	Fare Float
+);
+Select * from titanic;
+
+-- Number of passengers aboard
+Select count(*) from titanic;
+
+-- Look at children info
+Select * from titanic where Age < 12;
+-- from the children who did not survive, all but 1 were in class 3
+Select Pclass, Sex, Pass_name from titanic where Age < 12 and survived = 0;
+Select Pclass, Sex, Pass_name from titanic where Age < 12 and survived = 0 and Sex = 1;
+Select Pass_name, Age, Pclass from titanic where Age < 12 and survived = 0 and Sex = 1  order by age;
+
+
+-- Look at family info
+Select Pclass, Siblings_spouses_aboard, Parents_child_aboard from titanic where Parents_child_aboard > 0 and Siblings_spouses_aboard > 0;
+Select Pclass, Siblings_spouses_aboard, Parents_child_aboard from titanic where Parents_child_aboard > 0 and Siblings_spouses_aboard > 0
+	order by Parents_child_aboard;
+
+-- Look at elderly info
+Select count(*) from titanic where Age > 60;
+-- from the elderly that did not survive, all but 1 were Male
+Select Pclass, Sex, Pass_name from titanic where Age > 60 and survived = 0;
+
+
+
+
+
