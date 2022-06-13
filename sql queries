@@ -19,6 +19,7 @@ Select count(*) from titanic;
 Select * from titanic where Age < 12;
 -- from the children who did not survive, all but 1 were in class 3
 Select Pclass, Sex, Pass_name from titanic where Age < 12 and survived = 0;
+-- look at female children who did not survive
 Select Pclass, Sex, Pass_name from titanic where Age < 12 and survived = 0 and Sex = 1;
 Select Pass_name, Age, Pclass from titanic where Age < 12 and survived = 0 and Sex = 1  order by age;
 
