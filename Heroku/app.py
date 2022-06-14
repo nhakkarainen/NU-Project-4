@@ -6,14 +6,6 @@ import pandas as pd
 import numpy as np
 import os
 
-# File to Load 
-#file_to_load = "titanic.csv"
-
-# Read File and store into Pandas data frame
-#titanic_df = pd.read_csv("titanic.csv")
-#test_df = pd.read_csv("titanic.csv")
-#train_df = pd.read_csv("titanic.csv")
-
 # Flask setup
 app = Flask(__name__, template_folder="templates")
 
@@ -25,16 +17,7 @@ df.to_csv("C:/Users/School/Desktop/nhakkarainen/Projects/NU-Project-4/Heroku/res
 @app.route("/")
 def Homepage():
     """List all API routes."""
-    return (
-        f"<h1>Welcome to the Titanic Survivors Heroku API!</h1>"
-        f"<h2>Find out about the likelihood of survival for passengers aboard the Titanic.</h2>"
-        f"<strong><u>Available Routes:</u></strong><br/>"
-        f"1. <strong>Passenger Roster:</strong> /api/v1.0/dataset<br/>"
-        f"2. <strong>Probability of Survival:</strong> /api/v1.0/survival<br/>"
-        f"3. <strong>Visualization:</strong> /api/v1.0/graphs<br/>"
-        f"<br/>"
-        f"Note: API references <strong><i>Titanic Passenger Data</i></strong> found on Data Flair: <i>https://data-flair.training/blogs/machine-learning-datasets/</i>."
-    )
+    return render_template("index.html")
 
 # APP ROUTE 1 - SHOW PASSENGER ROSTER
 @app.route("/api/v1.0/dataset")
