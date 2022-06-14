@@ -12,7 +12,7 @@ app = Flask(__name__, template_folder="templates")
 # Read data in CSV file
 df = pd.read_csv("C:/Users/School/Desktop/nhakkarainen/Projects/NU-Project-4/Heroku/resources/titanic.csv")
 df.to_csv("C:/Users/School/Desktop/nhakkarainen/Projects/NU-Project-4/Heroku/resources/titanic.csv", index = None)
-
+cd
 # Flask routes
 @app.route("/")
 def Homepage():
